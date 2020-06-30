@@ -15,6 +15,8 @@
 		B6B0F93E24AB4D2200677E5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6B0F93C24AB4D2200677E5F /* LaunchScreen.storyboard */; };
 		B6B0F94924AB4D2200677E5F /* ESP32_Environment_MonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F94824AB4D2200677E5F /* ESP32_Environment_MonitorTests.swift */; };
 		B6B0F95424AB4D2200677E5F /* ESP32_Environment_MonitorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F95324AB4D2200677E5F /* ESP32_Environment_MonitorUITests.swift */; };
+		B6B0F96424AB501200677E5F /* WSReadings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F96324AB501200677E5F /* WSReadings.swift */; };
+		B6B0F96624AB519300677E5F /* WebSocketNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F96524AB519300677E5F /* WebSocketNative.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		B6B0F94F24AB4D2200677E5F /* ESP32 Environment MonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ESP32 Environment MonitorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6B0F95324AB4D2200677E5F /* ESP32_Environment_MonitorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESP32_Environment_MonitorUITests.swift; sourceTree = "<group>"; };
 		B6B0F95524AB4D2200677E5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6B0F96324AB501200677E5F /* WSReadings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSReadings.swift; sourceTree = "<group>"; };
+		B6B0F96524AB519300677E5F /* WebSocketNative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketNative.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		B6B0F93024AB4D2100677E5F /* ESP32 Environment Monitor */ = {
 			isa = PBXGroup;
 			children = (
+				B6B0F96224AB4FF600677E5F /* WebSocket Readings */,
 				B6B0F93124AB4D2100677E5F /* AppDelegate.swift */,
 				B6B0F93324AB4D2100677E5F /* SceneDelegate.swift */,
 				B6B0F93524AB4D2100677E5F /* ContentView.swift */,
@@ -134,6 +139,15 @@
 				B6B0F95524AB4D2200677E5F /* Info.plist */,
 			);
 			path = "ESP32 Environment MonitorUITests";
+			sourceTree = "<group>";
+		};
+		B6B0F96224AB4FF600677E5F /* WebSocket Readings */ = {
+			isa = PBXGroup;
+			children = (
+				B6B0F96324AB501200677E5F /* WSReadings.swift */,
+				B6B0F96524AB519300677E5F /* WebSocketNative.swift */,
+			);
+			path = "WebSocket Readings";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +283,8 @@
 			files = (
 				B6B0F93224AB4D2100677E5F /* AppDelegate.swift in Sources */,
 				B6B0F93424AB4D2100677E5F /* SceneDelegate.swift in Sources */,
+				B6B0F96424AB501200677E5F /* WSReadings.swift in Sources */,
+				B6B0F96624AB519300677E5F /* WebSocketNative.swift in Sources */,
 				B6B0F93624AB4D2100677E5F /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

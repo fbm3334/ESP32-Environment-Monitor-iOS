@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    var wsReadings = WSReadings()
     @State private var selection = 0
  
     var body: some View {
