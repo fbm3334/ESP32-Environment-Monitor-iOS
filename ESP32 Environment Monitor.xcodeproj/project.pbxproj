@@ -17,6 +17,10 @@
 		B6B0F95424AB4D2200677E5F /* ESP32_Environment_MonitorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F95324AB4D2200677E5F /* ESP32_Environment_MonitorUITests.swift */; };
 		B6B0F96424AB501200677E5F /* WSReadings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F96324AB501200677E5F /* WSReadings.swift */; };
 		B6B0F96624AB519300677E5F /* WebSocketNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F96524AB519300677E5F /* WebSocketNative.swift */; };
+		B6B0F96824AB724D00677E5F /* ReadingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F96724AB724D00677E5F /* ReadingsView.swift */; };
+		B6B0F96E24AB832B00677E5F /* TemperatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F96D24AB832B00677E5F /* TemperatureView.swift */; };
+		B6B0F97024AB891E00677E5F /* PressureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F96F24AB891E00677E5F /* PressureView.swift */; };
+		B6B0F97224AB8A4C00677E5F /* HumidityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F97124AB8A4C00677E5F /* HumidityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		B6B0F95524AB4D2200677E5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6B0F96324AB501200677E5F /* WSReadings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSReadings.swift; sourceTree = "<group>"; };
 		B6B0F96524AB519300677E5F /* WebSocketNative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketNative.swift; sourceTree = "<group>"; };
+		B6B0F96724AB724D00677E5F /* ReadingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingsView.swift; sourceTree = "<group>"; };
+		B6B0F96D24AB832B00677E5F /* TemperatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureView.swift; sourceTree = "<group>"; };
+		B6B0F96F24AB891E00677E5F /* PressureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureView.swift; sourceTree = "<group>"; };
+		B6B0F97124AB8A4C00677E5F /* HumidityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumidityView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,7 @@
 		B6B0F93024AB4D2100677E5F /* ESP32 Environment Monitor */ = {
 			isa = PBXGroup;
 			children = (
+				B6B0F96924AB7B9600677E5F /* Views */,
 				B6B0F96224AB4FF600677E5F /* WebSocket Readings */,
 				B6B0F93124AB4D2100677E5F /* AppDelegate.swift */,
 				B6B0F93324AB4D2100677E5F /* SceneDelegate.swift */,
@@ -148,6 +157,25 @@
 				B6B0F96524AB519300677E5F /* WebSocketNative.swift */,
 			);
 			path = "WebSocket Readings";
+			sourceTree = "<group>";
+		};
+		B6B0F96924AB7B9600677E5F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B6B0F96A24AB7B9C00677E5F /* Readings View */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B6B0F96A24AB7B9C00677E5F /* Readings View */ = {
+			isa = PBXGroup;
+			children = (
+				B6B0F96724AB724D00677E5F /* ReadingsView.swift */,
+				B6B0F96D24AB832B00677E5F /* TemperatureView.swift */,
+				B6B0F96F24AB891E00677E5F /* PressureView.swift */,
+				B6B0F97124AB8A4C00677E5F /* HumidityView.swift */,
+			);
+			path = "Readings View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,9 +309,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6B0F96E24AB832B00677E5F /* TemperatureView.swift in Sources */,
+				B6B0F97024AB891E00677E5F /* PressureView.swift in Sources */,
 				B6B0F93224AB4D2100677E5F /* AppDelegate.swift in Sources */,
+				B6B0F96824AB724D00677E5F /* ReadingsView.swift in Sources */,
 				B6B0F93424AB4D2100677E5F /* SceneDelegate.swift in Sources */,
 				B6B0F96424AB501200677E5F /* WSReadings.swift in Sources */,
+				B6B0F97224AB8A4C00677E5F /* HumidityView.swift in Sources */,
 				B6B0F96624AB519300677E5F /* WebSocketNative.swift in Sources */,
 				B6B0F93624AB4D2100677E5F /* ContentView.swift in Sources */,
 			);

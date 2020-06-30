@@ -91,6 +91,8 @@ class WSNative: NSObject, WSConnection, URLSessionWebSocketDelegate {
                 switch message {
                 case .string(let text):
                     self.delegate?.onMessage(connection: self, text: text)
+                    // Temp print
+                    //print(text)
                 case .data(let data):
                     self.delegate?.onMessage(connection: self, data: data)
                 @unknown default:
