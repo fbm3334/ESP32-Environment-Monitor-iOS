@@ -17,6 +17,9 @@ class WSReadings: ObservableObject, WebSocketDelegate {
     @Published var temperature: Float = 0.0;
     @Published var pressure: Float = 0.0;
     @Published var humidity: Float = 0.0;
+    var lastRefreshed: Date = Date()
+    @Published var lastRefreshedString: String = ""
+    
     
     init() {
         let url = URL(string: "ws://192.168.1.100:81")!
@@ -67,6 +70,11 @@ class WSReadings: ObservableObject, WebSocketDelegate {
     
     func requestAllReadings() {
         socket.write(string: "get_all")
+        lastRefreshed = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy H:mm:ss"
+        lastRefreshedString = formatter.string(from: lastRefreshed)
+        
     }
     
     func parseGetAllString(text: String) {

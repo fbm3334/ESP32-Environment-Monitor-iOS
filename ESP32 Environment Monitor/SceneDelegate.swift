@@ -15,6 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var wsReadings = WSReadings()
     
+    // Timer for automatically refreshing readings
+    var refreshTimer: Timer?
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -43,6 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         wsReadings.socket.connect()
+        refreshTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(refreshReadingsTimed), userInfo: nil, repeats: true)
         
     }
 
@@ -62,8 +66,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
         wsReadings.socket.disconnect()
+        refreshTimer?.invalidate()
     }
 
-
+    @objc func refreshReadingsTimed() {
+        wsReadings.socket.connect()
+        wsReadings.requestAllReadings()
+    }
 }
 

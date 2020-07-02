@@ -27,6 +27,10 @@ struct ReadingsView: View {
                     ReadingsViewIndividual(readingType: .humidity)
                     //PressureView()
                     //HumidityView()
+                    
+                    // Time last refreshed
+                    Text("LAST UPDATED: " + wsReadings.lastRefreshedString)
+                        .foregroundColor(.gray)
                     Spacer()
                 }
                 .navigationBarTitle(Text("Readings"))
