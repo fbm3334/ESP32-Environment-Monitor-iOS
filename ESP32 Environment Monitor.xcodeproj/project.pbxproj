@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6772D8524ADCECA00A4DCFA /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = B6772D8424ADCECA00A4DCFA /* Starscream */; };
 		B6B0F93224AB4D2100677E5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F93124AB4D2100677E5F /* AppDelegate.swift */; };
 		B6B0F93424AB4D2100677E5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F93324AB4D2100677E5F /* SceneDelegate.swift */; };
 		B6B0F93624AB4D2100677E5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F93524AB4D2100677E5F /* ContentView.swift */; };
@@ -16,7 +17,6 @@
 		B6B0F94924AB4D2200677E5F /* ESP32_Environment_MonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F94824AB4D2200677E5F /* ESP32_Environment_MonitorTests.swift */; };
 		B6B0F95424AB4D2200677E5F /* ESP32_Environment_MonitorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F95324AB4D2200677E5F /* ESP32_Environment_MonitorUITests.swift */; };
 		B6B0F96424AB501200677E5F /* WSReadings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F96324AB501200677E5F /* WSReadings.swift */; };
-		B6B0F96624AB519300677E5F /* WebSocketNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F96524AB519300677E5F /* WebSocketNative.swift */; };
 		B6B0F96824AB724D00677E5F /* ReadingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F96724AB724D00677E5F /* ReadingsView.swift */; };
 		B6B0F96E24AB832B00677E5F /* TemperatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F96D24AB832B00677E5F /* TemperatureView.swift */; };
 		B6B0F97024AB891E00677E5F /* PressureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F96F24AB891E00677E5F /* PressureView.swift */; };
@@ -56,7 +56,6 @@
 		B6B0F95324AB4D2200677E5F /* ESP32_Environment_MonitorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESP32_Environment_MonitorUITests.swift; sourceTree = "<group>"; };
 		B6B0F95524AB4D2200677E5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6B0F96324AB501200677E5F /* WSReadings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSReadings.swift; sourceTree = "<group>"; };
-		B6B0F96524AB519300677E5F /* WebSocketNative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketNative.swift; sourceTree = "<group>"; };
 		B6B0F96724AB724D00677E5F /* ReadingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingsView.swift; sourceTree = "<group>"; };
 		B6B0F96D24AB832B00677E5F /* TemperatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureView.swift; sourceTree = "<group>"; };
 		B6B0F96F24AB891E00677E5F /* PressureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureView.swift; sourceTree = "<group>"; };
@@ -68,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6772D8524ADCECA00A4DCFA /* Starscream in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				B6B0F96324AB501200677E5F /* WSReadings.swift */,
-				B6B0F96524AB519300677E5F /* WebSocketNative.swift */,
 			);
 			path = "WebSocket Readings";
 			sourceTree = "<group>";
@@ -194,6 +193,9 @@
 			dependencies = (
 			);
 			name = "ESP32 Environment Monitor";
+			packageProductDependencies = (
+				B6772D8424ADCECA00A4DCFA /* Starscream */,
+			);
 			productName = "ESP32 Environment Monitor";
 			productReference = B6B0F92E24AB4D2100677E5F /* ESP32 Environment Monitor.app */;
 			productType = "com.apple.product-type.application";
@@ -266,6 +268,9 @@
 				Base,
 			);
 			mainGroup = B6B0F92524AB4D2100677E5F;
+			packageReferences = (
+				B6772D8324ADCECA00A4DCFA /* XCRemoteSwiftPackageReference "Starscream" */,
+			);
 			productRefGroup = B6B0F92F24AB4D2100677E5F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -316,7 +321,6 @@
 				B6B0F93424AB4D2100677E5F /* SceneDelegate.swift in Sources */,
 				B6B0F96424AB501200677E5F /* WSReadings.swift in Sources */,
 				B6B0F97224AB8A4C00677E5F /* HumidityView.swift in Sources */,
-				B6B0F96624AB519300677E5F /* WebSocketNative.swift in Sources */,
 				B6B0F93624AB4D2100677E5F /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -642,6 +646,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B6772D8324ADCECA00A4DCFA /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B6772D8424ADCECA00A4DCFA /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6772D8324ADCECA00A4DCFA /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B6B0F92624AB4D2100677E5F /* Project object */;
 }

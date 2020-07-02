@@ -17,8 +17,8 @@ struct ReadingsView: View {
             PressureView()
             HumidityView()
             Button(action: {
-                self.wsReadings.socket?.send(text: "get_all")
-                //self.wsReadings.socket?.listen()
+                self.wsReadings.socket.connect()
+                self.wsReadings.requestAllReadings()
             }) {
                 Text("Get Readings")
             }

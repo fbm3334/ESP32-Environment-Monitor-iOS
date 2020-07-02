@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "67A0CCCB-3F3A-4FBA-B5A7-C1F4F77C1EEE"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C7671DEB-1FBD-413F-B53F-89D43B707906"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ESP32 Environment Monitor/WebSocket Readings/WebSocketNative.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "listen()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "218F4642-17BB-45F3-A977-CE3C37186446"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ESP32 Environment Monitor/WebSocket Readings/WebSocketNative.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "connect()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2AEF8F08-8747-4EEA-9461-CCE7F55F4858"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ESP32 Environment Monitor/WebSocket Readings/WebSocketNative.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5D4C10AE-26E4-422B-AD3C-D77210C55F0E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ESP32 Environment Monitor/WebSocket Readings/WebSocketNative.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "connect()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B1449805-349F-434C-92F5-26902644CB47"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ESP32 Environment Monitor/WebSocket Readings/WebSocketNative.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "urlSession(_:webSocketTask:didCloseWith:reason:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "88F616B8-380F-41DA-B36C-7A8BAB64CCCA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ESP32 Environment Monitor/WebSocket Readings/WebSocketNative.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "WSNative"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "88F616B8-380F-41DA-B36C-7A8BAB64CCCA - 14d01aedf3176560"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ESP32_Environment_Monitor.WSNative.delegate.getter : Swift.Optional&lt;ESP32_Environment_Monitor.WSConnectionDelegate&gt;"
+                  moduleName = "ESP32 Environment Monitor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/finn/Documents/iOS/ESP32%20Environment%20Monitor/ESP32%20Environment%20Monitor/WebSocket%20Readings/WebSocketNative.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "135">
+               </Location>
+               <Location
+                  uuid = "88F616B8-380F-41DA-B36C-7A8BAB64CCCA - 344eb25097cab554"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ESP32_Environment_Monitor.WSNative.delegate.setter : Swift.Optional&lt;ESP32_Environment_Monitor.WSConnectionDelegate&gt;"
+                  moduleName = "ESP32 Environment Monitor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/finn/Documents/iOS/ESP32%20Environment%20Monitor/ESP32%20Environment%20Monitor/WebSocket%20Readings/WebSocketNative.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "181">
+               </Location>
+               <Location
+                  uuid = "88F616B8-380F-41DA-B36C-7A8BAB64CCCA - 5b7573a25960c963"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ESP32_Environment_Monitor.WSNative.delegate.modify : Swift.Optional&lt;ESP32_Environment_Monitor.WSConnectionDelegate&gt;"
+                  moduleName = "ESP32 Environment Monitor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/finn/Documents/iOS/ESP32%20Environment%20Monitor/ESP32%20Environment%20Monitor/WebSocket%20Readings/WebSocketNative.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  uuid = "88F616B8-380F-41DA-B36C-7A8BAB64CCCA - 84f121ecb998a805"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ESP32_Environment_Monitor.WSNative.delegate.modify : Swift.Optional&lt;ESP32_Environment_Monitor.WSConnectionDelegate&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ESP32 Environment Monitor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/finn/Documents/iOS/ESP32%20Environment%20Monitor/ESP32%20Environment%20Monitor/WebSocket%20Readings/WebSocketNative.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98D631BB-CE74-4A76-82B0-0A7DD9B34582"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ESP32 Environment Monitor/WebSocket Readings/WebSocketNative.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "WSNative"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "98D631BB-CE74-4A76-82B0-0A7DD9B34582 - f43bc8418797cfe7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ESP32_Environment_Monitor.WSNative.urlSession.getter : Swift.Optional&lt;__C.NSURLSession&gt;"
+                  moduleName = "ESP32 Environment Monitor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/finn/Documents/iOS/ESP32%20Environment%20Monitor/ESP32%20Environment%20Monitor/WebSocket%20Readings/WebSocketNative.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "126">
+               </Location>
+               <Location
+                  uuid = "98D631BB-CE74-4A76-82B0-0A7DD9B34582 - 4da3f6053d042fdb"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ESP32_Environment_Monitor.WSNative.urlSession.setter : Swift.Optional&lt;__C.NSURLSession&gt;"
+                  moduleName = "ESP32 Environment Monitor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/finn/Documents/iOS/ESP32%20Environment%20Monitor/ESP32%20Environment%20Monitor/WebSocket%20Readings/WebSocketNative.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "98D631BB-CE74-4A76-82B0-0A7DD9B34582 - 159bbd83af157ea"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ESP32_Environment_Monitor.WSNative.urlSession.modify : Swift.Optional&lt;__C.NSURLSession&gt;"
+                  moduleName = "ESP32 Environment Monitor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/finn/Documents/iOS/ESP32%20Environment%20Monitor/ESP32%20Environment%20Monitor/WebSocket%20Readings/WebSocketNative.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "98D631BB-CE74-4A76-82B0-0A7DD9B34582 - b03a0f0d50532559"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ESP32_Environment_Monitor.WSNative.urlSession.modify : Swift.Optional&lt;__C.NSURLSession&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ESP32 Environment Monitor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/finn/Documents/iOS/ESP32%20Environment%20Monitor/ESP32%20Environment%20Monitor/WebSocket%20Readings/WebSocketNative.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C7E3A075-0331-4C83-A496-9B8AD7992E8C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ESP32 Environment Monitor/SceneDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB019846-2F5E-42B8-8F69-9407D71F7F87"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ESP32 Environment Monitor/WebSocket Readings/WebSocketNative.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "WSNative"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "FB019846-2F5E-42B8-8F69-9407D71F7F87 - 108a05a6f359f79f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ESP32_Environment_Monitor.WSNative.isConnected.getter : Swift.Bool"
+                  moduleName = "ESP32 Environment Monitor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/finn/Documents/iOS/ESP32%20Environment%20Monitor/ESP32%20Environment%20Monitor/WebSocket%20Readings/WebSocketNative.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "89">
+               </Location>
+               <Location
+                  uuid = "FB019846-2F5E-42B8-8F69-9407D71F7F87 - c1f8d8a617b9bfe3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ESP32_Environment_Monitor.WSNative.isConnected.setter : Swift.Bool"
+                  moduleName = "ESP32 Environment Monitor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/finn/Documents/iOS/ESP32%20Environment%20Monitor/ESP32%20Environment%20Monitor/WebSocket%20Readings/WebSocketNative.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "118">
+               </Location>
+               <Location
+                  uuid = "FB019846-2F5E-42B8-8F69-9407D71F7F87 - bec9338991b8b1ae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ESP32_Environment_Monitor.WSNative.isConnected.modify : Swift.Bool"
+                  moduleName = "ESP32 Environment Monitor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/finn/Documents/iOS/ESP32%20Environment%20Monitor/ESP32%20Environment%20Monitor/WebSocket%20Readings/WebSocketNative.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "FB019846-2F5E-42B8-8F69-9407D71F7F87 - 17fea978e412a865"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ESP32_Environment_Monitor.WSNative.isConnected.modify : Swift.Bool with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ESP32 Environment Monitor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/finn/Documents/iOS/ESP32%20Environment%20Monitor/ESP32%20Environment%20Monitor/WebSocket%20Readings/WebSocketNative.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7D840625-4EA1-4621-A2A2-302EC9DB680B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ESP32 Environment Monitor/WebSocket Readings/WebSocketNative.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "listen()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

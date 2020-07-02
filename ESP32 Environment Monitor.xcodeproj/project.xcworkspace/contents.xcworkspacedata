@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ESP32 Environment Monitor.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>
