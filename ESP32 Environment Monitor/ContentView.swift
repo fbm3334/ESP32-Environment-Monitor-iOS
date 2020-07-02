@@ -15,7 +15,6 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selection){
             ReadingsView()
-                .font(.title)
                 .tabItem {
                     VStack {
                         Image(systemName: "thermometer")

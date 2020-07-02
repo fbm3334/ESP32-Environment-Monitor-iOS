@@ -8,21 +8,38 @@
 
 import SwiftUI
 
+enum ReadingType {
+    case temperature
+    case pressure
+    case humidity
+}
+
 struct ReadingsView: View {
     @EnvironmentObject var wsReadings: WSReadings
-       
+    var readingType: ReadingType = .temperature
+    
     var body: some View {
-        VStack {
-            TemperatureView()
-            PressureView()
-            HumidityView()
-            Button(action: {
+        NavigationView {
+            
+                VStack {
+                    ReadingsViewIndividual(readingType: .temperature)
+                    ReadingsViewIndividual(readingType: .pressure)
+                    ReadingsViewIndividual(readingType: .humidity)
+                    //PressureView()
+                    //HumidityView()
+                    Spacer()
+                }
+                .navigationBarTitle(Text("Readings"))
+                .navigationBarItems(leading: Button(action: {
                 self.wsReadings.socket.connect()
                 self.wsReadings.requestAllReadings()
             }) {
-                Text("Get Readings")
-            }
+                Image(systemName: "arrow.clockwise.circle.fill")
+                    .font(.system(size: 20))
+            })
+            
         }
+        
     }
 }
 
