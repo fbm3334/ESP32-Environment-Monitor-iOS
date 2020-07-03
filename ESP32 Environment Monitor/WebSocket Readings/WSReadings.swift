@@ -10,6 +10,11 @@ import Foundation
 import Starscream
 
 class WSReadings: ObservableObject, WebSocketDelegate {
+    // Timer to refresh readings
+    var refreshTimer: Timer?
+    
+    // UserDefaults
+    let defaults = UserDefaults.standard
     
     var socket: WebSocket!
     var isConnected: Bool = false
@@ -19,6 +24,7 @@ class WSReadings: ObservableObject, WebSocketDelegate {
     @Published var humidity: Float = 0.0;
     var lastRefreshed: Date = Date()
     @Published var lastRefreshedString: String = ""
+    @Published public var refreshInterval: Int
     
     
     init() {
@@ -26,7 +32,9 @@ class WSReadings: ObservableObject, WebSocketDelegate {
         var request = URLRequest(url: url)
         request.timeoutInterval = 5
         socket = WebSocket(request: request)
+        self.refreshInterval = 10
         socket.delegate = self
+        
     }
     
     func didReceive(event: WebSocketEvent, client: WebSocket) {
@@ -56,7 +64,8 @@ class WSReadings: ObservableObject, WebSocketDelegate {
             isConnected = false
         case .error(let error):
             isConnected = false
-            print("Error: \(error)")
+            print("Error: \(error!)")
+            
         }
     }
     
@@ -69,6 +78,7 @@ class WSReadings: ObservableObject, WebSocketDelegate {
     }
     
     func requestAllReadings() {
+        print("Requesting...")
         socket.write(string: "get_all")
         lastRefreshed = Date()
         let formatter = DateFormatter()
@@ -87,5 +97,31 @@ class WSReadings: ObservableObject, WebSocketDelegate {
             self.pressure = (recvTextArray[1] as NSString).floatValue
             self.humidity = (recvTextArray[2] as NSString).floatValue
         }
+    }
+    
+    func changeRefreshInterval(interval: Int) {
+        refreshInterval = interval
+        refreshTimer?.invalidate()
+        refreshTimer = Timer.scheduledTimer(timeInterval: Double(refreshInterval), target: self, selector: #selector(refreshReadingsTimed), userInfo: nil, repeats: true)
+        defaults.set(refreshInterval, forKey: "refresh_interval")
+    }
+    
+    func setupTimer() {
+        refreshInterval = defaults.integer(forKey: "refresh_interval")
+        print("Recovered value = \(refreshInterval)")
+        // Default to 10 if interval is zero
+        if refreshInterval == 0 {
+            refreshInterval = 10
+        }
+        refreshTimer = Timer.scheduledTimer(timeInterval: Double(refreshInterval), target: self, selector: #selector(refreshReadingsTimed), userInfo: nil, repeats: true)
+    }
+    
+    @objc func refreshReadingsTimed() {
+        socket.connect()
+        requestAllReadings()
+    }
+    
+    func invalidateTimer() {
+        refreshTimer?.invalidate()
     }
 }

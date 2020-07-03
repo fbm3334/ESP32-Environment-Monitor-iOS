@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B6772D8524ADCECA00A4DCFA /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = B6772D8424ADCECA00A4DCFA /* Starscream */; };
 		B6772D8924ADF52000A4DCFA /* ReadingsViewIndividual.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6772D8824ADF52000A4DCFA /* ReadingsViewIndividual.swift */; };
+		B6772D8C24AE0E7400A4DCFA /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6772D8B24AE0E7400A4DCFA /* SetupView.swift */; };
 		B6B0F93224AB4D2100677E5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F93124AB4D2100677E5F /* AppDelegate.swift */; };
 		B6B0F93424AB4D2100677E5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F93324AB4D2100677E5F /* SceneDelegate.swift */; };
 		B6B0F93624AB4D2100677E5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F93524AB4D2100677E5F /* ContentView.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		B6772D8824ADF52000A4DCFA /* ReadingsViewIndividual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingsViewIndividual.swift; sourceTree = "<group>"; };
+		B6772D8B24AE0E7400A4DCFA /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		B6B0F92E24AB4D2100677E5F /* ESP32 Environment Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ESP32 Environment Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6B0F93124AB4D2100677E5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6B0F93324AB4D2100677E5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B6772D8A24AE0E4E00A4DCFA /* Setup View */ = {
+			isa = PBXGroup;
+			children = (
+				B6772D8B24AE0E7400A4DCFA /* SetupView.swift */,
+			);
+			path = "Setup View";
+			sourceTree = "<group>";
+		};
 		B6B0F92524AB4D2100677E5F = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 		B6B0F96924AB7B9600677E5F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B6772D8A24AE0E4E00A4DCFA /* Setup View */,
 				B6B0F96A24AB7B9C00677E5F /* Readings View */,
 			);
 			path = Views;
@@ -311,6 +322,7 @@
 				B6772D8924ADF52000A4DCFA /* ReadingsViewIndividual.swift in Sources */,
 				B6B0F93224AB4D2100677E5F /* AppDelegate.swift in Sources */,
 				B6B0F96824AB724D00677E5F /* ReadingsView.swift in Sources */,
+				B6772D8C24AE0E7400A4DCFA /* SetupView.swift in Sources */,
 				B6B0F93424AB4D2100677E5F /* SceneDelegate.swift in Sources */,
 				B6B0F96424AB501200677E5F /* WSReadings.swift in Sources */,
 				B6B0F93624AB4D2100677E5F /* ContentView.swift in Sources */,

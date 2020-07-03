@@ -31,8 +31,8 @@ struct ContentView: View {
                     }
                 }
                 .tag(1)
-            Text("Second View")
-                .font(.title)
+            SetupView()
+               
                 .tabItem {
                     VStack {
                         Image(systemName: "slider.horizontal.3")
