@@ -25,6 +25,7 @@ class WSReadings: ObservableObject, WebSocketDelegate {
     var lastRefreshed: Date = Date()
     @Published var lastRefreshedString: String = ""
     @Published public var refreshInterval: Int
+    @Published var refreshIntervalString: String = ""
     
     
     init() {
@@ -100,9 +101,11 @@ class WSReadings: ObservableObject, WebSocketDelegate {
     }
     
     func changeRefreshInterval(interval: Int) {
-        refreshInterval = interval
         refreshTimer?.invalidate()
+        print("Timer invalidated!")
+        refreshInterval = interval
         refreshTimer = Timer.scheduledTimer(timeInterval: Double(refreshInterval), target: self, selector: #selector(refreshReadingsTimed), userInfo: nil, repeats: true)
+        print("Interval changed: \(refreshInterval)")
         defaults.set(refreshInterval, forKey: "refresh_interval")
     }
     
@@ -113,6 +116,7 @@ class WSReadings: ObservableObject, WebSocketDelegate {
         if refreshInterval == 0 {
             refreshInterval = 10
         }
+        refreshIntervalString = String(refreshInterval)
         refreshTimer = Timer.scheduledTimer(timeInterval: Double(refreshInterval), target: self, selector: #selector(refreshReadingsTimed), userInfo: nil, repeats: true)
     }
     

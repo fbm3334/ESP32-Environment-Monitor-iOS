@@ -19,10 +19,10 @@ extension View {
 
 struct SetupView: View {
     @EnvironmentObject var wsReadings: WSReadings
-    @State var refreshIntervalString: String = "10"
+    @State var refreshIntervalString: String = ""
     //@State var refreshIntervalTemp: Int = 10
-    @State private var showingAlert = false
     
+    @ViewBuilder
     var body: some View {
         NavigationView {
             List {
@@ -30,6 +30,7 @@ struct SetupView: View {
                     HStack {
                         Text("Interval (seconds)")
                         Spacer()
+                        //refreshIntervalString = String(wsReadings.refreshInterval)
                         TextField("Interval", text: $refreshIntervalString)
                             .keyboardType(.decimalPad)
                             .multilineTextAlignment(.trailing)
@@ -39,20 +40,19 @@ struct SetupView: View {
                                     self.refreshIntervalString = filtered
                                 }
                             }
+                        
                                                
                     }
+                    Text("Current interval: \(wsReadings.refreshInterval)")
                     Button(action: {
                         self.wsReadings.changeRefreshInterval(interval: Int(self.refreshIntervalString)!)
                         print(self.wsReadings.refreshInterval)
                         self.hideKeyboard()
-                        self.showingAlert = true
                     }) {
                         Text("Change interval")
                     }
-                    .alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Apply interval change"), message: Text("You will need to exit the app and reopen it to apply the time interval change."), dismissButton: .default(Text("OK")))
-                    }
                 }
+                
             }
             .navigationBarTitle("Setup")
             .listStyle(GroupedListStyle())

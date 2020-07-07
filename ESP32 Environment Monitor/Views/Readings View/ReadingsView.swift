@@ -21,6 +21,8 @@ struct ReadingsView: View {
     var body: some View {
         NavigationView {
                 VStack {
+                    Spacer()
+                        .frame(height: 10)
                     ReadingsViewIndividual(readingType: .temperature)
                     ReadingsViewIndividual(readingType: .pressure)
                     ReadingsViewIndividual(readingType: .humidity)
@@ -30,7 +32,7 @@ struct ReadingsView: View {
                     // Time last refreshed
                     Text("LAST UPDATED: " + wsReadings.lastRefreshedString)
                         .foregroundColor(.gray)
-                    Text("REFRESH INTERVAL: \(self.wsReadings.refreshInterval)")
+                    //Text("REFRESH INTERVAL: \(self.wsReadings.refreshInterval)")
                     Spacer()
                 }
                 .navigationBarTitle(Text("Readings"))
