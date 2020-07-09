@@ -24,18 +24,24 @@ class WSReadings: ObservableObject, WebSocketDelegate {
     @Published var humidity: Float = 0.0;
     var lastRefreshed: Date = Date()
     @Published var lastRefreshedString: String = ""
-    @Published public var refreshInterval: Int
+    @Published public var refreshInterval: Int = 0
     @Published var refreshIntervalString: String = ""
     
     
     init() {
+        if defaults.bool(forKey: "serverInit") == false {
+            print("WS not initialised")
+        } else {
+            initWebSocket()
+        }
+    }
+    
+    func initWebSocket() {
         let url = URL(string: "ws://192.168.1.100:81")!
         var request = URLRequest(url: url)
         request.timeoutInterval = 5
         socket = WebSocket(request: request)
-        self.refreshInterval = 10
         socket.delegate = self
-        
     }
     
     func didReceive(event: WebSocketEvent, client: WebSocket) {
@@ -66,6 +72,8 @@ class WSReadings: ObservableObject, WebSocketDelegate {
         case .error(let error):
             isConnected = false
             print("Error: \(error!)")
+            // Set the server initialisation flag to false - may need to reinitialise the server
+            defaults.set(false, forKey: "serverInit")
             
         }
     }
@@ -79,13 +87,15 @@ class WSReadings: ObservableObject, WebSocketDelegate {
     }
     
     func requestAllReadings() {
-        print("Requesting...")
-        socket.write(string: "get_all")
-        lastRefreshed = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy H:mm:ss"
-        lastRefreshedString = formatter.string(from: lastRefreshed)
-        
+        // Only request if server has been defined properly
+        if defaults.bool(forKey: "serverInit") == true {
+            print("Requesting...")
+            socket.write(string: "get_all")
+            lastRefreshed = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy H:mm:ss"
+            lastRefreshedString = formatter.string(from: lastRefreshed)
+        }
     }
     
     func parseGetAllString(text: String) {
@@ -101,31 +111,40 @@ class WSReadings: ObservableObject, WebSocketDelegate {
     }
     
     func changeRefreshInterval(interval: Int) {
-        refreshTimer?.invalidate()
-        print("Timer invalidated!")
+        // Set refresh interval to given interval
         refreshInterval = interval
-        refreshTimer = Timer.scheduledTimer(timeInterval: Double(refreshInterval), target: self, selector: #selector(refreshReadingsTimed), userInfo: nil, repeats: true)
-        print("Interval changed: \(refreshInterval)")
-        defaults.set(refreshInterval, forKey: "refresh_interval")
+        // Save the nwt
+        defaults.set(refreshInterval, forKey: "refreshInterval")
+        // Use setupTimer function to set up the timer based on the new value
+        setupTimer()
     }
     
     func setupTimer() {
-        refreshInterval = defaults.integer(forKey: "refresh_interval")
-        print("Recovered value = \(refreshInterval)")
-        // Default to 10 if interval is zero
+        // Invalidate timer just in case
+        invalidateTimer()
+        // Get the refresh interval from UserDefaults
+        refreshInterval = defaults.integer(forKey: "refreshInterval")
+        print("Recovered interval value = \(refreshInterval)")
+        // Set interval to default of 10 if retrieved value is 0
         if refreshInterval == 0 {
             refreshInterval = 10
         }
-        refreshIntervalString = String(refreshInterval)
+        refreshIntervalString = String(refreshInterval) // Save refresh interval as string
+        // Set up refresh timer with correct values
         refreshTimer = Timer.scheduledTimer(timeInterval: Double(refreshInterval), target: self, selector: #selector(refreshReadingsTimed), userInfo: nil, repeats: true)
     }
     
+    // Function to refresh timings
     @objc func refreshReadingsTimed() {
+        // Connect to the ESP32 WebSocket server
         socket.connect()
+        // Request the readings
         requestAllReadings()
     }
     
     func invalidateTimer() {
+        // Invalidate the timer and print to console
         refreshTimer?.invalidate()
+        print("Timer invalidated!")
     }
 }
