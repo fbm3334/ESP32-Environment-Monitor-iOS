@@ -25,6 +25,8 @@ struct SetupView: View {
     @State var ipAddressString: String = ""
     @State var portString: String = ""
     
+    @State private var showIPPortValidationAlert = false
+    
     @ViewBuilder
     var body: some View {
         NavigationView {
@@ -61,12 +63,20 @@ struct SetupView: View {
                             }
                     }
                     Button(action: {
-                        self.wsReadings.configWebSocket(ipString: self.ipAddressString, portString: self.portString)
-                        //print(self.wsReadings.refreshInterval)
+                        // Validate the IP address when button pressed
+                        if self.wsReadings.validateIPPort(ipAddress: self.ipAddressString, port: self.portString) == true {
+                            self.wsReadings.configWebSocket(ipString: self.ipAddressString, portString: self.portString)
+                            self.wsReadings.repeatRequest()
+                        } else {
+                            self.showIPPortValidationAlert = true
+                        }
                         self.hideKeyboard()
-                        self.wsReadings.repeatRequest()
+                        
                     }) {
                         Text("Change IP address and port")
+                    }
+                    .alert(isPresented: $showIPPortValidationAlert) {
+                        Alert(title: Text("IP address and/or port not valid"), message: Text("The IP address and/or port are not valid. Please check them and try again."), dismissButton: .default(Text("OK")))
                     }
                 }
                 

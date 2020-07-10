@@ -8,6 +8,7 @@
 
 import Foundation
 import Starscream
+import Network // Network library is used to validate the IP addresses
 
 class WSReadings: ObservableObject, WebSocketDelegate {
     // Timer to refresh readings
@@ -78,8 +79,10 @@ class WSReadings: ObservableObject, WebSocketDelegate {
         case .pong(_):
             break
         case .viabilityChanged(_):
+            print("Viability changed")
             break
         case .reconnectSuggested(_):
+            print("Reconnect is suggested")
             break
         case .cancelled:
             isConnected = false
@@ -174,6 +177,33 @@ class WSReadings: ObservableObject, WebSocketDelegate {
                 self.requestTimer?.invalidate()
                 self.setupTimer()
             }
+        }
+    }
+    
+    func validateIPPort(ipAddress: String, port: String) -> Bool {
+        // Validate the port first - check that the number falls within the allowable range (1-49151)
+        var allowedPort: Bool
+        let portInt = Int(port) ?? 0
+        if portInt < 1 || portInt > 49151 {
+            allowedPort = false
+        } else {
+            allowedPort = true
+        }
+        
+        // Validate the IP address
+        var allowedIP: Bool
+        // If it can be casted into IP, then it is a valid IP address
+        if let _ = IPv4Address(ipAddress) {
+            allowedIP = true
+        } else {
+            allowedIP = false
+        }
+        
+        // Only return true if both IP and port are true
+        if allowedIP == true && allowedPort == true {
+            return true
+        } else {
+            return false
         }
     }
 }
