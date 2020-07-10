@@ -42,7 +42,7 @@
 /* Begin PBXFileReference section */
 		B6772D8824ADF52000A4DCFA /* ReadingsViewIndividual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingsViewIndividual.swift; sourceTree = "<group>"; };
 		B6772D8B24AE0E7400A4DCFA /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
-		B6B0F92E24AB4D2100677E5F /* ESP32 Environment Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ESP32 Environment Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6B0F92E24AB4D2100677E5F /* Env Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Env Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6B0F93124AB4D2100677E5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6B0F93324AB4D2100677E5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B6B0F93524AB4D2100677E5F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 		B6B0F92F24AB4D2100677E5F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B6B0F92E24AB4D2100677E5F /* ESP32 Environment Monitor.app */,
+				B6B0F92E24AB4D2100677E5F /* Env Monitor.app */,
 				B6B0F94424AB4D2200677E5F /* ESP32 Environment MonitorTests.xctest */,
 				B6B0F94F24AB4D2200677E5F /* ESP32 Environment MonitorUITests.xctest */,
 			);
@@ -202,7 +202,7 @@
 				B6772D8424ADCECA00A4DCFA /* Starscream */,
 			);
 			productName = "ESP32 Environment Monitor";
-			productReference = B6B0F92E24AB4D2100677E5F /* ESP32 Environment Monitor.app */;
+			productReference = B6B0F92E24AB4D2100677E5F /* Env Monitor.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B6B0F94324AB4D2200677E5F /* ESP32 Environment MonitorTests */ = {
@@ -500,7 +500,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.finnbeckitt-marshall.ESP32-Environment-Monitor";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Env Monitor";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -520,7 +520,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.finnbeckitt-marshall.ESP32-Environment-Monitor";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Env Monitor";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

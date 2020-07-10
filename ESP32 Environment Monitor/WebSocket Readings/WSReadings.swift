@@ -12,12 +12,15 @@ import Starscream
 class WSReadings: ObservableObject, WebSocketDelegate {
     // Timer to refresh readings
     var refreshTimer: Timer?
+    var requestTimer: Timer?
     
     // UserDefaults
     let defaults = UserDefaults.standard
     
     var socket: WebSocket!
     var isConnected: Bool = false
+    
+    var urlString: String = "" // URL string
     
     @Published var temperature: Float = 0.0;
     @Published var pressure: Float = 0.0;
@@ -37,11 +40,22 @@ class WSReadings: ObservableObject, WebSocketDelegate {
     }
     
     func initWebSocket() {
-        let url = URL(string: "ws://192.168.1.100:81")!
+        let url = defaults.url(forKey: "URL")!
         var request = URLRequest(url: url)
         request.timeoutInterval = 5
         socket = WebSocket(request: request)
         socket.delegate = self
+    }
+    
+    // Function to configure the WebSocket
+    func configWebSocket(ipString: String, portString: String) {
+        urlString = "ws://\(ipString):\(portString)"
+        print(urlString)
+        // Save the URL into UserDefaults
+        defaults.set(URL(string: urlString), forKey: "URL")
+        initWebSocket()
+        defaults.set(true, forKey: "serverInit")
+        requestAllReadings()
     }
     
     func didReceive(event: WebSocketEvent, client: WebSocket) {
@@ -132,6 +146,8 @@ class WSReadings: ObservableObject, WebSocketDelegate {
         refreshIntervalString = String(refreshInterval) // Save refresh interval as string
         // Set up refresh timer with correct values
         refreshTimer = Timer.scheduledTimer(timeInterval: Double(refreshInterval), target: self, selector: #selector(refreshReadingsTimed), userInfo: nil, repeats: true)
+        // Add 0.2s tolerance to the timer to reduce energy usage
+        refreshTimer?.tolerance = 0.2
     }
     
     // Function to refresh timings
@@ -146,5 +162,18 @@ class WSReadings: ObservableObject, WebSocketDelegate {
         // Invalidate the timer and print to console
         refreshTimer?.invalidate()
         print("Timer invalidated!")
+    }
+    
+    func repeatRequest() {
+        // Request timer fires every 2 seconds (cannot be too quick as ESP32 does not like it)
+        requestTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+            self.socket.connect()
+            self.requestAllReadings()
+            print("Request sent")
+            if self.isConnected == true {
+                self.requestTimer?.invalidate()
+                self.setupTimer()
+            }
+        }
     }
 }
