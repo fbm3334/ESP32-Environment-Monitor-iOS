@@ -19,7 +19,7 @@ class WSReadings: ObservableObject, WebSocketDelegate {
     let defaults = UserDefaults.standard
     
     var socket: WebSocket!
-    var isConnected: Bool = false
+    @Published var isConnected: Bool = false
     
     var urlString: String = "" // URL string
     

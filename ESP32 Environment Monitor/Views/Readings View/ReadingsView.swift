@@ -25,13 +25,24 @@ struct ReadingsView: View {
     var body: some View {
         NavigationView {
                 VStack {
-                    Spacer()
-                        .frame(height: 10)
-                    if defaults.bool(forKey: "serverInit") == true {
-                        ReadingsViewIndividual(readingType: .temperature)
-                        ReadingsViewIndividual(readingType: .pressure)
-                        ReadingsViewIndividual(readingType: .humidity)
                     
+                    if defaults.bool(forKey: "serverInit") == true {
+                        ScrollView {
+                            ReadingsViewIndividual(readingType: .temperature)
+                            ReadingsViewIndividual(readingType: .pressure)
+                            ReadingsViewIndividual(readingType: .humidity)
+                        }
+                        .navigationBarTitle(Text("Readings"))
+                            .navigationBarItems(leading: Button(action: {
+                                // Only perform button actions if server initialised
+                                if self.defaults.bool(forKey: "serverInit") == true {
+                                    self.wsReadings.socket.connect()
+                                    self.wsReadings.requestAllReadings()
+                                }
+                        }) {
+                            Image(systemName: "arrow.clockwise.circle.fill")
+                                .font(.system(size: 20))
+                        })
                         // Time last refreshed
                         Text("LAST UPDATED: " + wsReadings.lastRefreshedString)
                             .foregroundColor(.gray)
@@ -54,18 +65,11 @@ struct ReadingsView: View {
                     .padding()
                     }
                     Spacer()
+                    ConnectionStatusView()
+                    Spacer()
+                        .frame(height: 5)
                 }
-                .navigationBarTitle(Text("Readings"))
-                .navigationBarItems(leading: Button(action: {
-                    // Only perform button actions if server initialised
-                    if self.defaults.bool(forKey: "serverInit") == true {
-                        self.wsReadings.socket.connect()
-                        self.wsReadings.requestAllReadings()
-                    }
-            }) {
-                Image(systemName: "arrow.clockwise.circle.fill")
-                    .font(.system(size: 20))
-            })
+                
             
         }
         
