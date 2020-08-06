@@ -14,6 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     var wsReadings = WSReadings()
+    var csvReadings = CSVReadings()
     // UserDefaults
     let defaults = UserDefaults.standard
     
@@ -24,6 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView().environmentObject(wsReadings)
+            .environmentObject(csvReadings)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

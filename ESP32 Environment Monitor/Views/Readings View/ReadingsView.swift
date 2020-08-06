@@ -33,12 +33,12 @@ struct ReadingsView: View {
                             ReadingsViewIndividual(readingType: .humidity)
                         }
                         .navigationBarTitle(Text("Readings"))
-                            .navigationBarItems(leading: Button(action: {
-                                // Only perform button actions if server initialised
-                                if self.defaults.bool(forKey: "serverInit") == true {
-                                    self.wsReadings.socket.connect()
-                                    self.wsReadings.requestAllReadings()
-                                }
+                        .navigationBarItems(leading: Button(action: {
+                            // Only perform button actions if server initialised
+                            if self.defaults.bool(forKey: "serverInit") == true {
+                                self.wsReadings.socket.connect()
+                                self.wsReadings.requestAllReadings()
+                            }
                         }) {
                             Image(systemName: "arrow.clockwise.circle.fill")
                                 .font(.system(size: 20))

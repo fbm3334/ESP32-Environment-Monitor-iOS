@@ -10,6 +10,8 @@
 		B6772D8524ADCECA00A4DCFA /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = B6772D8424ADCECA00A4DCFA /* Starscream */; };
 		B6772D8924ADF52000A4DCFA /* ReadingsViewIndividual.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6772D8824ADF52000A4DCFA /* ReadingsViewIndividual.swift */; };
 		B6772D8C24AE0E7400A4DCFA /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6772D8B24AE0E7400A4DCFA /* SetupView.swift */; };
+		B67EDBCF24DC14CB009F06C0 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EDBCE24DC14CB009F06C0 /* GraphView.swift */; };
+		B67EDBD124DC445D009F06C0 /* CSVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EDBD024DC445D009F06C0 /* CSVView.swift */; };
 		B680777D24BA115C002BFC66 /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B680777C24BA115C002BFC66 /* ConnectionStatusView.swift */; };
 		B6B0F93224AB4D2100677E5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F93124AB4D2100677E5F /* AppDelegate.swift */; };
 		B6B0F93424AB4D2100677E5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F93324AB4D2100677E5F /* SceneDelegate.swift */; };
@@ -21,6 +23,7 @@
 		B6B0F95424AB4D2200677E5F /* ESP32_Environment_MonitorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F95324AB4D2200677E5F /* ESP32_Environment_MonitorUITests.swift */; };
 		B6B0F96424AB501200677E5F /* WSReadings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F96324AB501200677E5F /* WSReadings.swift */; };
 		B6B0F96824AB724D00677E5F /* ReadingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0F96724AB724D00677E5F /* ReadingsView.swift */; };
+		B6C74EEA24D9D66C00D5E984 /* CSVReadings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74EE924D9D66C00D5E984 /* CSVReadings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,8 @@
 /* Begin PBXFileReference section */
 		B6772D8824ADF52000A4DCFA /* ReadingsViewIndividual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingsViewIndividual.swift; sourceTree = "<group>"; };
 		B6772D8B24AE0E7400A4DCFA /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
+		B67EDBCE24DC14CB009F06C0 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		B67EDBD024DC445D009F06C0 /* CSVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVView.swift; sourceTree = "<group>"; };
 		B680777C24BA115C002BFC66 /* ConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusView.swift; sourceTree = "<group>"; };
 		B6B0F92E24AB4D2100677E5F /* Env Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Env Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6B0F93124AB4D2100677E5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +65,7 @@
 		B6B0F95524AB4D2200677E5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6B0F96324AB501200677E5F /* WSReadings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSReadings.swift; sourceTree = "<group>"; };
 		B6B0F96724AB724D00677E5F /* ReadingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingsView.swift; sourceTree = "<group>"; };
+		B6C74EE924D9D66C00D5E984 /* CSVReadings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVReadings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,15 @@
 			path = "Setup View";
 			sourceTree = "<group>";
 		};
+		B67EDBCD24DC1487009F06C0 /* GraphView */ = {
+			isa = PBXGroup;
+			children = (
+				B67EDBCE24DC14CB009F06C0 /* GraphView.swift */,
+				B67EDBD024DC445D009F06C0 /* CSVView.swift */,
+			);
+			path = GraphView;
+			sourceTree = "<group>";
+		};
 		B6B0F92524AB4D2100677E5F = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +134,7 @@
 		B6B0F93024AB4D2100677E5F /* ESP32 Environment Monitor */ = {
 			isa = PBXGroup;
 			children = (
+				B6C74EE824D9D64F00D5E984 /* CSV Readings */,
 				B6B0F96924AB7B9600677E5F /* Views */,
 				B6B0F96224AB4FF600677E5F /* WebSocket Readings */,
 				B6B0F93124AB4D2100677E5F /* AppDelegate.swift */,
@@ -169,6 +185,7 @@
 		B6B0F96924AB7B9600677E5F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B67EDBCD24DC1487009F06C0 /* GraphView */,
 				B6772D8A24AE0E4E00A4DCFA /* Setup View */,
 				B6B0F96A24AB7B9C00677E5F /* Readings View */,
 			);
@@ -183,6 +200,14 @@
 				B680777C24BA115C002BFC66 /* ConnectionStatusView.swift */,
 			);
 			path = "Readings View";
+			sourceTree = "<group>";
+		};
+		B6C74EE824D9D64F00D5E984 /* CSV Readings */ = {
+			isa = PBXGroup;
+			children = (
+				B6C74EE924D9D66C00D5E984 /* CSVReadings.swift */,
+			);
+			path = "CSV Readings";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,7 +352,10 @@
 				B6B0F96824AB724D00677E5F /* ReadingsView.swift in Sources */,
 				B6772D8C24AE0E7400A4DCFA /* SetupView.swift in Sources */,
 				B680777D24BA115C002BFC66 /* ConnectionStatusView.swift in Sources */,
+				B67EDBD124DC445D009F06C0 /* CSVView.swift in Sources */,
+				B67EDBCF24DC14CB009F06C0 /* GraphView.swift in Sources */,
 				B6B0F93424AB4D2100677E5F /* SceneDelegate.swift in Sources */,
+				B6C74EEA24D9D66C00D5E984 /* CSVReadings.swift in Sources */,
 				B6B0F96424AB501200677E5F /* WSReadings.swift in Sources */,
 				B6B0F93624AB4D2100677E5F /* ContentView.swift in Sources */,
 			);

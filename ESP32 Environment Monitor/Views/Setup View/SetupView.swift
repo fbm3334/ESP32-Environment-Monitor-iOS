@@ -21,11 +21,14 @@ struct SetupView: View {
     let defaults = UserDefaults.standard
     
     @EnvironmentObject var wsReadings: WSReadings
+    @EnvironmentObject var csvReadings: CSVReadings
     @State var refreshIntervalString: String = ""
     @State var ipAddressString: String = ""
     @State var portString: String = ""
+    @State var sdLogIntervalString: String = ""
     
     @State private var showIPPortValidationAlert = false
+    @State private var showReadingIntervalValidationAlert = false
     
     @ViewBuilder
     var body: some View {
@@ -65,8 +68,11 @@ struct SetupView: View {
                     Button(action: {
                         // Validate the IP address when button pressed
                         if self.wsReadings.validateIPPort(ipAddress: self.ipAddressString, port: self.portString) == true {
+                            // Configure the WebSocket with the correct IP
                             self.wsReadings.configWebSocket(ipString: self.ipAddressString, portString: self.portString)
                             self.wsReadings.repeatRequest()
+                            // Configure the CSV download URL
+                            self.csvReadings.setCSVDownloadURL(ipAddress: self.ipAddressString)
                         } else {
                             self.showIPPortValidationAlert = true
                         }
@@ -110,6 +116,33 @@ struct SetupView: View {
                     }
                 }
                 
+                Section(header: Text("SD card logging interval")) {
+                    HStack {
+                        Text("Logging interval")
+                        Spacer()
+                        TextField("Interval", text: $sdLogIntervalString)
+                            .keyboardType(.decimalPad)
+                            .multilineTextAlignment(.trailing)
+                            .onReceive(Just(sdLogIntervalString)) { newValue in
+                                let filtered = newValue.filter { "0123456789".contains($0) }
+                                if filtered != newValue {
+                                    self.sdLogIntervalString = filtered
+                                }
+                            }
+                    }
+                    Button(action: {
+                        if self.wsReadings.changeSDLogInterval(intervalString: self.sdLogIntervalString) == true {
+                            print("Change successful")
+                        } else {
+                            self.showReadingIntervalValidationAlert = true
+                        }
+                    }) {
+                        Text("Change interval")
+                    }
+                    .alert(isPresented: $showReadingIntervalValidationAlert) {
+                        Alert(title: Text("Reading interval not valid"), message: Text("The reading interval must be between 1 and 65,535 seconds. Please check it and try again."), dismissButton: .default(Text("OK")))
+                    }
+                }
                 
             }
             .navigationBarTitle("Setup")

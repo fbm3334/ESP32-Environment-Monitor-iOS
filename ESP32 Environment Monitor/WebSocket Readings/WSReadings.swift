@@ -32,6 +32,7 @@ class WSReadings: ObservableObject, WebSocketDelegate {
     @Published var refreshIntervalString: String = ""
     
     
+    
     init() {
         if defaults.bool(forKey: "serverInit") == false {
             print("WS not initialised")
@@ -204,6 +205,18 @@ class WSReadings: ObservableObject, WebSocketDelegate {
             return true
         } else {
             return false
+        }
+    }
+    
+    func changeSDLogInterval(intervalString: String) -> Bool {
+        var logInterval = 0 // Initial initialisation
+        logInterval = Int(intervalString)!
+        // Cannot have a value lower than 1 or higher than 65,535
+        if logInterval < 1 || logInterval > 65535 {
+            return false
+        } else {
+            socket.write(string: "log_interval=\(logInterval)")
+            return true
         }
     }
 }
