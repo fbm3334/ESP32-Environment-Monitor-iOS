@@ -7,30 +7,74 @@
 //
 
 import SwiftUI
-
+import SwiftUICharts
 
 
 struct GraphView: View {
-    @EnvironmentObject var csvReadings: CSVReadings
     let defaults = UserDefaults.standard
+    @EnvironmentObject var csvReadings: CSVReadings
     
+    @ViewBuilder
     var body: some View {
         NavigationView {
-            NavigationLink(destination: CSVView().environmentObject(csvReadings)) {
-                Text("View CSV")
-            }
-
-            .navigationBarTitle("Graph")
-            .navigationBarItems(leading: Button(action: {
-                // Only perform button actions if server initialised
-                if self.defaults.bool(forKey: "serverInit") == true {
-                    self.csvReadings.downloadCSV()
+            // If CSV dagta downloaded, show views, else show error
+            if (csvReadings.downloadedCSV == true) {
+                List {
+                    NavigationLink(destination: TemperatureGraph().environmentObject(csvReadings)) {
+                        Text("Temperature")
+                    }
+                    NavigationLink(destination: PressureGraph().environmentObject(csvReadings)) {
+                        Text("Pressure")
+                    }
+                    NavigationLink(destination: HumidityGraph().environmentObject(csvReadings)) {
+                        Text("Humidity")
+                    }
+                    NavigationLink(destination: CSVView().environmentObject(csvReadings)) {
+                        Text("View Stored Readings")
+                    }
+                    
                 }
-            }) {
-                Image(systemName: "arrow.clockwise.circle.fill")
-                    .font(.system(size: 20))
-            })
+                .navigationBarTitle("Graphs")
+                .navigationBarItems(leading: Button(action: {
+                    // Only perform button actions if server initialised
+                    if self.defaults.bool(forKey: "serverInit") == true {
+                        self.csvReadings.downloadCSV()
+                    }
+                }) {
+                    Image(systemName: "arrow.clockwise.circle.fill")
+                        .font(.system(size: 20))
+                })
+            } else {
+                VStack {
+                        Image(systemName: "exclamationmark.circle.fill")
+                            .font(.system(size: 60))
+                            .foregroundColor(Color.red)
+                        Spacer()
+                            .frame(height: 30)
+                        Text("No data available")
+                            .font(Font.largeTitle.bold())
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color.red)
+                        Spacer()
+                        .frame(height: 30)
+                        Text("No data has been downloaded from the ESP32 - press the Refresh button below to download data.")
+                            .multilineTextAlignment(.center)
+                        Spacer()
+                        Button(action: {
+                            // Only perform button actions if server initialised
+                            if self.defaults.bool(forKey: "serverInit") == true {
+                                self.csvReadings.downloadCSV()
+                            }
+                        }) {
+                            Image(systemName: "arrow.clockwise.circle.fill")
+                                .font(.system(size: 20))
+                        }
+                    }
+                .padding()
+            }
+            
         }
+        
     }
 }
 

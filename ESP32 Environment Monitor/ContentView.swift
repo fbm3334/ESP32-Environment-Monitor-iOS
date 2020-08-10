@@ -26,7 +26,7 @@ struct ContentView: View {
                 .tabItem {
                     VStack {
                         Image(systemName: "chart.bar")
-                        Text("Graph")
+                        Text("Graphs")
                     }
                 }
                 .tag(1)

@@ -25,11 +25,15 @@ class CSVReadings: ObservableObject {
     var url: String = ""
     // CSV text
     var csvText: String?
-    var downloadedCSV: Bool = false
+    @Published var downloadedCSV: Bool = false
     
     var lineTemp: [String] = [""]
     var elementsTemp = CSVElements(id: UUID(), timestamp: Date(timeIntervalSince1970: 0), timeFormatted: "", temperature: 0.0, pressure: 0.0, humidity: 0.0)
     var elementsArray: [CSVElements] = []
+    var tempTupleArray: [(String, Float)] = []
+    var tempArray: [Double] = []
+    var pressureArray: [Double] = []
+    var humidityArray: [Double] = []
     
     
     init() {
@@ -79,7 +83,7 @@ class CSVReadings: ObservableObject {
         while csvText == nil {
             // Execute while the string is empty
         }
-        downloadedCSV = true
+        //downloadedCSV = true
         print(csvText!)
         separateCSVIntoElements()
     }
@@ -105,11 +109,19 @@ class CSVReadings: ObservableObject {
             elementsTemp.humidity = Float(lineTemp[3])!
             // Append this to the main vector
             elementsArray.append(elementsTemp)
+            tempTupleArray.append((elementsTemp.timeFormatted, elementsTemp.temperature))
+            tempArray.append(Double(elementsTemp.temperature))
+            pressureArray.append(Double(elementsTemp.pressure))
+            humidityArray.append(Double(elementsTemp.humidity))
         }
-        // Remove the first element of the array
-        elementsArray.removeFirst()
         // Print the array
-        print(elementsArray)
-        
+        print("-------- ARRAY ---------")
+        print(tempArray)
+        // Remove all but the last 30 values
+        if (tempArray.count > 30) { tempArray.removeFirst(tempArray.count - 30) }
+        if (pressureArray.count > 30) { pressureArray.removeFirst(pressureArray.count - 30) }
+        if (humidityArray.count > 30) { humidityArray.removeFirst(humidityArray.count - 30) }
+        print(tempArray)
+        downloadedCSV = true
     }
 }

@@ -8,17 +8,15 @@
 
 import SwiftUI
 
-
-
 struct CSVView: View {
     @EnvironmentObject var csvReadings: CSVReadings
     var body: some View {
-        NavigationView {
+        
             return List(self.csvReadings.elementsArray) { csvRow in
                 CSVRow(csvRow: csvRow)
             }
-        //.navigationBarTitle("View Stored Readings")
-        }
+        .navigationBarTitle("View Stored Readings")
+        
     }
 }
 
