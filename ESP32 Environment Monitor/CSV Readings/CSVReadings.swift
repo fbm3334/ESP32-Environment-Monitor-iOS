@@ -35,6 +35,9 @@ class CSVReadings: ObservableObject {
     var pressureArray: [Double] = []
     var humidityArray: [Double] = []
     
+    @Published var earliestDate: String = ""
+    @Published var latestDate: String = ""
+    
     
     init() {
         if defaults.bool(forKey: "serverInit") == false {
@@ -117,8 +120,15 @@ class CSVReadings: ObservableObject {
         // Print the array
         print("-------- ARRAY ---------")
         print(tempArray)
-        // Remove all but the last 30 values
-        if (tempArray.count > 30) { tempArray.removeFirst(tempArray.count - 30) }
+        // Remove all but the last 30 values - this wil be when elementsArray is < 30
+        if (elementsArray.count > 30) {
+            tempArray.removeFirst(tempArray.count - 30)
+            pressureArray.removeFirst(pressureArray.count - 30)
+            humidityArray.removeFirst(humidityArray.count - 30)
+            latestDate = elementsArray[elementsArray.count - 1].timeFormatted
+            earliestDate = elementsArray[elementsArray.count - 31].timeFormatted
+        }
+        if (tempArray.count > 30) {  }
         if (pressureArray.count > 30) { pressureArray.removeFirst(pressureArray.count - 30) }
         if (humidityArray.count > 30) { humidityArray.removeFirst(humidityArray.count - 30) }
         print(tempArray)

@@ -16,7 +16,20 @@ struct PressureGraph: View {
             LineView(data: csvReadings.pressureArray, title: "Pressure (mb)", legend: "Last 30 readings")
                 .padding()
             Spacer()
+                .frame(height: 50)
+            HStack {
+                Text(csvReadings.earliestDate)
+                    .multilineTextAlignment(.leading)
+                    .font(.caption)
+                Spacer()
+                Text(csvReadings.latestDate)
+                    .multilineTextAlignment(.trailing)
+                    .font(.caption)
+            }
+            .padding()
+            Spacer()
         }
+            .offset(x: 0, y: -20)
     .navigationBarTitle("Pressure Graph")
     }
 }

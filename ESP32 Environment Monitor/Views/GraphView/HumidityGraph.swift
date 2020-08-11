@@ -16,7 +16,20 @@ struct HumidityGraph: View {
             LineView(data: csvReadings.humidityArray, title: "Humidity (%)", legend: "Last 30 readings")
                 .padding()
             Spacer()
+                .frame(height: 50)
+            HStack {
+                Text(csvReadings.earliestDate)
+                    .multilineTextAlignment(.leading)
+                    .font(.caption)
+                Spacer()
+                Text(csvReadings.latestDate)
+                    .multilineTextAlignment(.trailing)
+                    .font(.caption)
+            }
+            .padding()
+            Spacer()
         }
+            .offset(x: 0, y: -20)
     .navigationBarTitle("Humidity Graph")
     }
 }
