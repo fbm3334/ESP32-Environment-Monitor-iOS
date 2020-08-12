@@ -21,12 +21,15 @@ struct GraphView: View {
             if (csvReadings.downloadedCSV == true) {
                 List {
                     NavigationLink(destination: TemperatureGraph().environmentObject(csvReadings)) {
+                        Image(systemName: "thermometer")
                         Text("Temperature")
                     }
                     NavigationLink(destination: PressureGraph().environmentObject(csvReadings)) {
+                        Image(systemName: "wind")
                         Text("Pressure")
                     }
                     NavigationLink(destination: HumidityGraph().environmentObject(csvReadings)) {
+                        Image(systemName: "cloud.rain")
                         Text("Humidity")
                     }
                     NavigationLink(destination: CSVView().environmentObject(csvReadings)) {

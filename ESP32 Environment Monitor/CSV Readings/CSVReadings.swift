@@ -30,7 +30,6 @@ class CSVReadings: ObservableObject {
     var lineTemp: [String] = [""]
     var elementsTemp = CSVElements(id: UUID(), timestamp: Date(timeIntervalSince1970: 0), timeFormatted: "", temperature: 0.0, pressure: 0.0, humidity: 0.0)
     var elementsArray: [CSVElements] = []
-    var tempTupleArray: [(String, Float)] = []
     var tempArray: [Double] = []
     var pressureArray: [Double] = []
     var humidityArray: [Double] = []
@@ -91,9 +90,16 @@ class CSVReadings: ObservableObject {
         separateCSVIntoElements()
     }
     
+    // Function to add CSV data into arrays
+    func addCSV(elementsTemp: CSVElements) {
+        elementsArray.append(elementsTemp)
+        tempArray.append(Double(elementsTemp.temperature))
+        pressureArray.append(Double(elementsTemp.pressure))
+        humidityArray.append(Double(elementsTemp.humidity))
+    }
+    
     // Function to seperate the CSV file into individual elements
     func separateCSVIntoElements() {
-        
         var cleanCSV = csvText?.replacingOccurrences(of: "\r", with: "\n")
         cleanCSV = cleanCSV?.replacingOccurrences(of: "\n\n", with: "\n")
         var csvLines = cleanCSV?.components(separatedBy: ["\n"])
@@ -111,11 +117,7 @@ class CSVReadings: ObservableObject {
             elementsTemp.pressure = Float(lineTemp[2])!
             elementsTemp.humidity = Float(lineTemp[3])!
             // Append this to the main vector
-            elementsArray.append(elementsTemp)
-            tempTupleArray.append((elementsTemp.timeFormatted, elementsTemp.temperature))
-            tempArray.append(Double(elementsTemp.temperature))
-            pressureArray.append(Double(elementsTemp.pressure))
-            humidityArray.append(Double(elementsTemp.humidity))
+            addCSV(elementsTemp: elementsTemp)
         }
         // Print the array
         print("-------- ARRAY ---------")
@@ -133,5 +135,12 @@ class CSVReadings: ObservableObject {
         if (humidityArray.count > 30) { humidityArray.removeFirst(humidityArray.count - 30) }
         print(tempArray)
         downloadedCSV = true
+    }
+    
+    func clearArrays() {
+        elementsArray.removeAll()
+        tempArray.removeAll()
+        pressureArray.removeAll()
+        humidityArray.removeAll()
     }
 }

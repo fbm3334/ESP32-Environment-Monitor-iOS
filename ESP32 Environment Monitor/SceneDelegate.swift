@@ -51,6 +51,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if defaults.bool(forKey: "serverInit") == true {
             wsReadings.socket.connect()
             wsReadings.setupTimer()
+            csvReadings.downloadCSV()
         }
     }
 
@@ -74,6 +75,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if defaults.bool(forKey: "serverInit") == true {
             wsReadings.socket.disconnect()
             wsReadings.invalidateTimer()
+            csvReadings.clearArrays()
         }
     }
 
