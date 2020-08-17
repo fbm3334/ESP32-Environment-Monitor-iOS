@@ -30,6 +30,9 @@ struct SetupView: View {
     @State private var showIPPortValidationAlert = false
     @State private var showReadingIntervalValidationAlert = false
     
+    // Modify multiple variables when Fahrenheit switch toggled
+    @State private var fahrenheitToggleValue: Bool = false
+    
     @ViewBuilder
     var body: some View {
         NavigationView {
@@ -144,10 +147,29 @@ struct SetupView: View {
                     }
                 }
                 
+                Section(header: Text("Units")) {
+                    HStack {
+                        Text("Temperature in Fahrenheit (ºF)")
+                        Spacer()
+                        Toggle("", isOn: $fahrenheitToggleValue)
+                        .labelsHidden()
+                            .onTapGesture {
+                                self.fahrenheitToggleValue = !self.fahrenheitToggleValue
+                                print("Toggle value")
+                                self.wsReadings.tempFahrenheit = self.fahrenheitToggleValue
+                                self.csvReadings.tempFahrenheit = self.fahrenheitToggleValue
+                                print("Value = \(self.wsReadings.tempFahrenheit), CSV = \(self.csvReadings.tempFahrenheit)")
+                            }
+                           
+                        }
+                    }
+                
+                
             }
             .navigationBarTitle("Setup")
             .listStyle(GroupedListStyle())
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

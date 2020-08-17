@@ -31,7 +31,7 @@ class WSReadings: ObservableObject, WebSocketDelegate {
     @Published public var refreshInterval: Int = 0
     @Published var refreshIntervalString: String = ""
     
-    
+    @Published var tempFahrenheit: Bool = false
     
     init() {
         if defaults.bool(forKey: "serverInit") == false {
@@ -124,9 +124,17 @@ class WSReadings: ObservableObject, WebSocketDelegate {
             let recvTextArray = tempText.components(separatedBy: ",")
             // Set temp, pressure and humidity accordingly
             self.temperature = (recvTextArray[0] as NSString).floatValue
+            // Convert to Fahrenheit if requested
+            if self.tempFahrenheit == true {
+                self.temperature = self.convertToFahrenheit(celsius: self.temperature)
+            }
             self.pressure = (recvTextArray[1] as NSString).floatValue
             self.humidity = (recvTextArray[2] as NSString).floatValue
         }
+    }
+    
+    func convertToFahrenheit(celsius: Float) -> Float {
+        return ((celsius * (9/5)) + 32 )
     }
     
     func changeRefreshInterval(interval: Int) {

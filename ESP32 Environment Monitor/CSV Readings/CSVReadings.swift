@@ -21,6 +21,8 @@ class CSVReadings: ObservableObject {
     // UserDefaults
     let defaults = UserDefaults.standard
     
+    let wsReadings = WSReadings()
+    
     // URL for the connection
     var url: String = ""
     // CSV text
@@ -37,6 +39,9 @@ class CSVReadings: ObservableObject {
     @Published var earliestDate: String = ""
     @Published var latestDate: String = ""
     
+    @Published var tempFahrenheit: Bool = false
+    
+    @Published var chartTitle: String = ""
     
     init() {
         if defaults.bool(forKey: "serverInit") == false {
@@ -113,7 +118,12 @@ class CSVReadings: ObservableObject {
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/yy HH:mm:ss"
             elementsTemp.timeFormatted = formatter.string(from: elementsTemp.timestamp)
-            elementsTemp.temperature = Float(lineTemp[1])!
+            if (tempFahrenheit == true) {
+                elementsTemp.temperature = wsReadings.convertToFahrenheit(celsius: Float(lineTemp[1])!)
+                print(elementsTemp.temperature)
+            } else {
+                elementsTemp.temperature = Float(lineTemp[1])!
+            }
             elementsTemp.pressure = Float(lineTemp[2])!
             elementsTemp.humidity = Float(lineTemp[3])!
             // Append this to the main vector
@@ -134,9 +144,20 @@ class CSVReadings: ObservableObject {
         if (pressureArray.count > 30) { pressureArray.removeFirst(pressureArray.count - 30) }
         if (humidityArray.count > 30) { humidityArray.removeFirst(humidityArray.count - 30) }
         print(tempArray)
+        setChartTitle()
         downloadedCSV = true
     }
     
+    // Function to set the appropriate chart title
+    func setChartTitle() {
+        if (tempFahrenheit == true) {
+            chartTitle = "Temperature (ºF)"
+        } else {
+            chartTitle = "Temperature (ºC)"
+        }
+    }
+    
+    // Function to clear the arrays
     func clearArrays() {
         elementsArray.removeAll()
         tempArray.removeAll()

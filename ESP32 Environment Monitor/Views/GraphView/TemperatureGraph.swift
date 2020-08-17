@@ -13,7 +13,7 @@ struct TemperatureGraph: View {
     @EnvironmentObject var csvReadings: CSVReadings
     var body: some View {
         VStack(alignment: .leading) {
-            LineView(data: csvReadings.tempArray, title: "Temperature (ºC)", legend: "Last 30 readings")
+            LineView(data: csvReadings.tempArray, title: csvReadings.chartTitle, legend: "Last 30 readings")
                 .padding()
             Spacer()
                 .frame(height: 50)

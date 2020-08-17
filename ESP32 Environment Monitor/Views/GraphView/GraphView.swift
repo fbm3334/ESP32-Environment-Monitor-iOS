@@ -21,19 +21,25 @@ struct GraphView: View {
             if (csvReadings.downloadedCSV == true) {
                 List {
                     NavigationLink(destination: TemperatureGraph().environmentObject(csvReadings)) {
-                        Image(systemName: "thermometer")
                         Text("Temperature")
+                        Spacer()
+                        Image(systemName: "thermometer")
                     }
                     NavigationLink(destination: PressureGraph().environmentObject(csvReadings)) {
-                        Image(systemName: "wind")
                         Text("Pressure")
+                        Spacer()
+                        Image(systemName: "wind")
                     }
                     NavigationLink(destination: HumidityGraph().environmentObject(csvReadings)) {
-                        Image(systemName: "cloud.rain")
                         Text("Humidity")
+                        Spacer()
+                        Image(systemName: "cloud.rain")
                     }
                     NavigationLink(destination: CSVView().environmentObject(csvReadings)) {
                         Text("View Stored Readings")
+                        Spacer()
+                        Image(systemName: "eyeglasses")
+                        
                     }
                     
                 }
@@ -76,7 +82,8 @@ struct GraphView: View {
                 .padding()
             }
             
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
+        .padding(0)
         
     }
 }

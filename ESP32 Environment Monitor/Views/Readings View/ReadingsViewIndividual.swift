@@ -35,9 +35,17 @@ struct ReadingsViewIndividual: View {
                             .font(.headline)
                             .fontWeight(.heavy)
                             .foregroundColor(Color.white)
-                        Text(String(wsReadings.temperature) + "ºC")
+                        // If the temperature is in Fahrenheit, show ºF
+                        if (wsReadings.tempFahrenheit == true) {
+                            Text(String(format: "%.1fºF", wsReadings.temperature))
                             .foregroundColor(Color.white)
                             .font(.system(size: 30))
+                        } else {
+                            Text(String(format: "%.1fºC", wsReadings.temperature))
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 30))
+                        }
+                        
                     } else if (readingType == .pressure) {
                         Text("Pressure")
                             .font(.headline)

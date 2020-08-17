@@ -72,7 +72,7 @@ struct ReadingsView: View {
                 
             
         }
-        
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
